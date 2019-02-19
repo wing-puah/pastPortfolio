@@ -7,10 +7,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { withStyles } from '@material-ui/core/styles';
 
+import LeftDrawer from './drawer';
+import LoginBtn from './login';
+
 const styles = theme => ({
   navLink: {
     paddingRight: theme.spacing.unit,
     paddingLeft: theme.spacing.unit,
+    color: theme.palette.contrastText,
   },
 })
 
@@ -20,15 +24,14 @@ function Navbar (props) {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton color="inherit" aria-label="Menu">
-          <MenuIcon />
-        </IconButton>
+        <LeftDrawer />
         <Link href="/">
           <a className={classes.navLink}>Home</a>
         </Link>
         <Link href="/about">
           <a className={classes.navLink}>About</a>
         </Link>
+        <LoginBtn />
       </Toolbar>
     </AppBar>
   )

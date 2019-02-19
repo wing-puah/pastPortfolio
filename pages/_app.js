@@ -24,10 +24,11 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
+
     return (
       <Container>
         <Head>
-          <title>My page</title>
+          <title>Portfolio</title>
         </Head>
         {/* Wrap every page in Jss and Theme providers */}
         <JssProvider
@@ -53,5 +54,8 @@ class MyApp extends App {
     );
   }
 }
+
+
+
 
 export default MyApp;

@@ -1,0 +1,21 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        ["@babel/preset-env",
+          {"targets": {
+             "esmodules": true
+            }
+          }
+        ],
+        "next/babel"
+      ]
+    },
+    "production": {
+      "presets": ["next/babel"]
+    },
+    "test": {
+      "presets": ["next/babel"]
+    }
+  }
+}

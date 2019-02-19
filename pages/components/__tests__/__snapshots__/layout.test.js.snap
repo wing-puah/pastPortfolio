@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout/> matches the snapshot 1`] = `
+<Navbar
+  classes={
+    Object {
+      "navLink": "Navbar-navLink-1",
+    }
+  }
+/>
+`;
