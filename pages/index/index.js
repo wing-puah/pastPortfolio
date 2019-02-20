@@ -1,8 +1,8 @@
 import PortfolioGrid from './portfolioGrid'
 
 const mockData = [
-  {img: 'lame', title: 'lame', author: 'lame'},
-  {img: 'lame2', title: 'lame2', author: 'lame2'},
+  {img: 'Monty Hall Game App', title: 'Monty Hall Game App', url: 'monty-hall'},
+  {img: 'lame2', title: 'lame2', url: 'lame2'},
 ]
 
 function Home() {

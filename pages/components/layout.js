@@ -22,9 +22,9 @@ function BodyContainer(props) {
   const { classes } = props;
 
   return (
-   <div className={classes.body}>
+   <div className={classes.body}{...props}>
      <Paper className={classes.root} elevation={1}>
-       {props.children}
+       { props.children }
      </Paper>
    </div>
   );
@@ -36,10 +36,14 @@ const Layout = (props) => (
   <div>
     <Navbar />
       <BodyContainerWithCss>
-        {props.children}
+        { props.children }
       </BodyContainerWithCss>
   </div>
 )
+
+Layout.propTypes = {
+  children: PropTypes.object.isRequired,
+}
 
 export { BodyContainer, BodyContainerWithCss }
 export default Layout

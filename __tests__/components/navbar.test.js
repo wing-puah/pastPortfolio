@@ -1,10 +1,10 @@
 import { shallow, mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import Layout, { BodyContainer, BodyContainerWithCss } from '../navbar';
+import Navbar from '../../pages/components/navbar';
 
-describe( '<Layout/>', () => {
+describe( '<Navbar/>', () => {
   it('matches the snapshot', () => {
-    const wrapper = shallow(<Layout />);
+    const wrapper = shallow(<Navbar />);
     expect(toJSON(wrapper)).toMatchSnapshot();
   })
 })

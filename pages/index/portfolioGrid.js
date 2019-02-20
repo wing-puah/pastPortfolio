@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import Link from 'next/link'
+
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -31,20 +33,23 @@ function PortfolioGrid(props) {
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
+          <ListSubheader component="div">The apps</ListSubheader>
         </GridListTile>
         {tileData.map(tile => (
           <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
-              actionIcon={
-                <IconButton className={classes.icon}>
-                  <InfoIcon />
-                </IconButton>
-              }
-            />
+            <Link href={tile.url}>
+              <a>
+                <img src={tile.img} alt={tile.title} />
+                    <GridListTileBar
+                      title={tile.title}
+                      actionIcon={
+                        <IconButton className={classes.icon}>
+                          <InfoIcon />
+                        </IconButton>
+                      }
+                    />
+              </a>
+            </Link>
           </GridListTile>
         ))}
       </GridList>
