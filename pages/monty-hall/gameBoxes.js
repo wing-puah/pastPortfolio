@@ -11,7 +11,7 @@ const styles = theme => ({
     width: '100%',
     fontSize: 40,
     color: theme.palette.text.secondary,
-    background: theme.palette.secondary.light,
+    background: theme.palette.secondary.main,
     '&:hover' : {
       background: theme.palette.secondary.main,
       color: theme.palette.secondary.contrastText,
@@ -20,7 +20,7 @@ const styles = theme => ({
   activeButton: {
     background: theme.palette.primary.main,
     color: theme.palette.primary.contrastText,
-    '&:hover' : {
+    '&:hover': {
       background: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
     }
@@ -54,9 +54,9 @@ function GameBoxes(props) {
 }
 
 GameBoxes.propTypes = {
- classes: PropTypes.object.isRequired,
- userChoice: PropTypes.string,
- setUserChoice: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired,
+  userChoice: PropTypes.string,
+  setUserChoice: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(GameBoxes);

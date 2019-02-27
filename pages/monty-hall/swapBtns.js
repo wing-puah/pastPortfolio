@@ -6,36 +6,23 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const styles = theme => ({
-  root: {
-        justifyContent: 'center'
-  },
-  swapBtn: {
-    margin: theme.spacing.unit *3
-  },
-  primaryButton: {
-    background: theme.palette.primary.dark,
-  },
-  secondaryButton: {
-    background: theme.palette.secondary.dark,
-  },
-});
-
 function SwapBtns(props) {
   const { classes } = props;
 
   return (
-    <Grid container alignContent="center" alignItems="center" className={classes.root}>
+    <Grid container className="justify-content-center">
       <Grid item>
         <Button
           variant="contained"
-          className={`${classes.swapBtn} ${classes.primaryButton}`}
+          color="primary"
+          className="m-3"
           onClick={ props.swap }>
           Swap
         </Button>
         <Button
           variant="contained"
-          className={`${classes.swapBtn} ${classes.secondaryButton}`}
+          color="secondary"
+          className="m-3"
           onClick={ props.noSwap }>
           Don't swap
         </Button>
@@ -44,4 +31,5 @@ function SwapBtns(props) {
   )
 }
 
-export default withStyles(styles)(SwapBtns);
+// export default withStyles(styles)(SwapBtns);
+export default SwapBtns

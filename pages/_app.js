@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import JssProvider from 'react-jss/lib/JssProvider';
-import GlobalStyles from './components/styles/globalStyles';
+import GlobalStyles from '../components/styles/globalStyles';
 import getPageContext from '../src/getPageContext';
 
-import Layout from './components/layout';
+import Layout from '../components/layout';
 
 class MyApp extends App {
   constructor() {

@@ -1,27 +1,15 @@
 import { useState, useEffect, Fragment } from 'react';
 
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-import MontyHallGameApp from './utils'
+import MontyHallGameApp from './utils';
 import GameBoxes from './gameBoxes';
 import SwapBtns from './swapBtns';
-
-const styles = theme => ({
-  root: {
-    justifyContent: 'center'
-  }
-});
 
 const { showInstructions, generateWinningBox, setResults, swapAndSetResults, setHint } = MontyHallGameApp
 
 function MontyHallGame(props) {
-  const { classes } = props;
-
   let [userChoice, setUserChoice] = useState(),
       [userStep, setUserStep] = useState(0),
       [winningBox, setWinningBox] = useState(),
@@ -52,21 +40,21 @@ function MontyHallGame(props) {
   }
 
   return (
-     <div className={classes.root}>
-       <Typography variant="h1" align="center" gutterBottom={true}>
+     <div className="text-center">
+       <h1 className="text-center">
          Monty Hall Game
-       </Typography>
-       <Typography variant="h2" align="center" gutterBottom={true}>
+       </h1>
+       <h2 className="text-center">
          {showInstructions(userStep)}
-       </Typography>
+       </h2>
        { userStep === 1 && (
          <Fragment>
-           <Typography variant="body1" align="center">
+           <p>
              <GetHints
                winningBox={winningBox}
                userChoice={userChoice}
               />
-           </Typography>
+          </p>
            <SwapBtns
              swap={() => {
                setReultsMsg(swapAndSetResults(winningBox, dummyBox, userChoice));
@@ -80,13 +68,10 @@ function MontyHallGame(props) {
          </Fragment>
        )}
        { userStep === 2 && (
-         <Typography variant="body1" align="center" gutterBottom={true}>
-           { resultsMsg }
-         </Typography>
+         <p> { resultsMsg } </p>
        )}
        <Grid
          container spacing={24}
-         className={classes.boxes}
          data-choice={userChoice}
         >
         <GameBoxes
@@ -104,8 +89,8 @@ function MontyHallGame(props) {
 }
 
 MontyHallGame.propTypes = {
- classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(MontyHallGame);
+export default MontyHallGame;
