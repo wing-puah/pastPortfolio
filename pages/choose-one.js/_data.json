@@ -1,0 +1,28 @@
+{
+  "choices": [
+    {
+      "name": "Test 1",
+      "image": "img1"
+    },
+    {
+      "name": "Test 2",
+      "image": "img2"
+    },
+    {
+      "name": "Test 3",
+      "image": "img3"
+    }
+    {
+      "name": "Test 4",
+      "image": "img4"
+    },
+    {
+      "name": "Test 5",
+      "image": "img5"
+    },
+    {
+      "name": "Test 6",
+      "image": "img6"
+    }
+  ]
+}

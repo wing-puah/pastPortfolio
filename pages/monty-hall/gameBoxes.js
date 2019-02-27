@@ -27,7 +27,7 @@ const styles = theme => ({
   }
 });
 
-const GameBoxes = (props) => {
+function GameBoxes(props) {
   const { classes } = props;
   let gameBoxes = [];
 

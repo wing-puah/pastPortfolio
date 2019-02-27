@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import JssProvider from 'react-jss/lib/JssProvider';
+import GlobalStyles from './components/styles/globalStyles';
 import getPageContext from '../src/getPageContext';
 
 import Layout from './components/layout';
@@ -43,6 +44,7 @@ class MyApp extends App {
           >
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
+            <GlobalStyles />
             {/* Pass pageContext to the _document though the renderPage enhancer
                 to render collected styles on server-side. */}
             <Layout>

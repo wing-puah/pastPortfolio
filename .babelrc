@@ -9,10 +9,12 @@
           }
         ],
         "next/babel"
-      ]
+      ],
+      "plugins": [["styled-components", { "ssr": true }]]
     },
     "production": {
-      "presets": ["next/babel"]
+      "presets": ["next/babel"],
+      "plugins": [["styled-components", { "ssr": true }]]
     },
     "test": {
       "presets": ["next/babel"]

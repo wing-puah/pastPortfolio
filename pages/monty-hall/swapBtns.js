@@ -21,7 +21,7 @@ const styles = theme => ({
   },
 });
 
-const SwapBtns = (props) => {
+function SwapBtns(props) {
   const { classes } = props;
 
   return (

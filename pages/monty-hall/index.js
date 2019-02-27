@@ -13,7 +13,7 @@ import SwapBtns from './swapBtns';
 
 const styles = theme => ({
   root: {
-        justifyContent: 'center'
+    justifyContent: 'center'
   }
 });
 
@@ -43,11 +43,9 @@ function MontyHallGame(props) {
     let hints = setHint(props.winningBox, props.userChoice),
         box =  hints.dummyBox;
 
-    useEffect(() => {
-      if (dummyBox === undefined) {
-        setDummyBox(box);
-      }
-    }, []);
+    if (dummyBox === undefined) {
+      setDummyBox(box);
+    }
 
     hint = hints.hint;
     return hint;
@@ -55,10 +53,10 @@ function MontyHallGame(props) {
 
   return (
      <div className={classes.root}>
-       <Typography variant="h1" align="center" gutterBottom="true">
+       <Typography variant="h1" align="center" gutterBottom={true}>
          Monty Hall Game
        </Typography>
-       <Typography variant="h2" align="center" gutterBottom="true">
+       <Typography variant="h2" align="center" gutterBottom={true}>
          {showInstructions(userStep)}
        </Typography>
        { userStep === 1 && (
@@ -82,7 +80,7 @@ function MontyHallGame(props) {
          </Fragment>
        )}
        { userStep === 2 && (
-         <Typography variant="body1" align="center" gutterBottom="true">
+         <Typography variant="body1" align="center" gutterBottom={true}>
            { resultsMsg }
          </Typography>
        )}
