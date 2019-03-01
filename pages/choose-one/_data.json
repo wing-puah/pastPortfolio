@@ -1,28 +1,32 @@
 {
   "choices": [
     {
-      "name": "Test 1",
-      "image": "img1"
+      "name": "Do something great",
+      "image": "choose-1.jpg"
     },
     {
-      "name": "Test 2",
-      "image": "img2"
+      "name": "Vintage",
+      "image": "choose-2.jpg"
     },
     {
-      "name": "Test 3",
-      "image": "img3"
+      "name": "Candies",
+      "image": "choose-3.jpg"
     },
     {
-      "name": "Test 4",
-      "image": "img4"
+      "name": "Piano",
+      "image": "choose-4.jpg"
     },
     {
-      "name": "Test 5",
-      "image": "img5"
+      "name": "Phone and sunglasses",
+      "image": "choose-5.jpg"
     },
     {
-      "name": "Test 6",
-      "image": "img6"
+      "name": "Pastel",
+      "image": "choose-6.jpg"
+    },
+    {
+      "name": "Writing",
+      "image": "choose-7.jpg"
     }
   ]
 }

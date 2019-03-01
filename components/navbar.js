@@ -1,44 +1,33 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link'
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { withStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
 import LeftDrawer from './drawer';
-import LoginBtn from './login';
 
-const styles = theme => ({
-  navLink: {
-    paddingRight: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit,
-    color: theme.palette.contrastText,
-  },
-})
+
+const Nav = styled.a`
+  color: #222;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`
 
 function Navbar (props) {
-  const { classes } = props;
-
   return (
     <AppBar position="static">
       <Toolbar>
         <LeftDrawer />
         <Link href="/">
-          <a className={classes.navLink}>Home</a>
+          <Nav>Home</Nav>
         </Link>
-        <Link href="/about">
-          <a className={classes.navLink}>About</a>
-        </Link>
-        <LoginBtn />
       </Toolbar>
     </AppBar>
   )
 }
 
-Navbar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Navbar);
+export default Navbar;

@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import ErrorBoundary from '../../components/errorMsg';
-import { Box___withHover } from '../../components/styles/boxes';
+import { Container__boxShadow } from '../../components/styles/container';
 import generateRandomArr from './utils';
 import data from './_data.json';
 
@@ -27,7 +27,7 @@ const UserRecord = (props) => (
     </TableHead>
     <TableBody>
       {props.records.map((el, idx) => (
-        <TableRow>
+        <TableRow key={idx}>
           <TableCell>{idx+1}</TableCell>
           <TableCell>{el}</TableCell>
         </TableRow>
@@ -38,13 +38,13 @@ const UserRecord = (props) => (
 
  const SingleBox = (props) => (
   <Grid item xs={6}>
-    <Box___withHover
+    <Container__boxShadow
       className="text-center p-5"
       onClick={props.onUserClick}
     >
-      {props.image}
+      <img src={`/static/choose-one/${props.image}`} className="img-fluid"/>
       <h3>{props.name}</h3>
-    </Box___withHover>
+    </Container__boxShadow>
   </Grid>
 );
 
@@ -70,6 +70,7 @@ function ChooseOneGrid(props) {
 
   return (
     <div>
+      <h2>Choose the image that you like</h2>
       <Grid container spacing={16}>
         <SingleBox
           onUserClick={() => {

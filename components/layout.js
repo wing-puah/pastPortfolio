@@ -7,16 +7,14 @@ import Navbar from './navbar';
 import theme from './styles/theme';
 
 const Layout = (props) => (
-  <ThemeProvider theme={theme}>
-    <MuiThemeProvider theme={theme}>
-      <Fragment>
-        <Navbar />
-        <section className="container">
-          { props.children }
-        </section>
-      </Fragment>
-    </MuiThemeProvider>
-  </ThemeProvider>
+  <MuiThemeProvider theme={theme}>
+    <Fragment>
+      <Navbar />
+      <section className="container">
+        { props.children }
+      </section>
+    </Fragment>
+  </MuiThemeProvider>
 );
 
 Layout.propTypes = {

@@ -2,14 +2,14 @@ import React from 'react';
 import PortfolioGrid from './portfolioGrid';
 
 const mockData = [
-  { img: 'Monty Hall Game App', title: 'Monty Hall Game App', url: 'monty-hall' },
-  { img: 'Choose One Game App', title: 'Choose One Game App', url: 'choose-one' },
+  { img: 'monty-hall.jpg', title: 'Monty Hall Game App', url: 'monty-hall' },
+  { img: 'choose-one/choose-1.jpg', title: 'Choose One Game App', url: 'choose-one' },
 ];
 
 function Home() {
   return (
     <div>
-      Welcome to the portfolio page
+      <h1 className="mb-4 text-center">React and website portfolio</h1>
       <PortfolioGrid tileData={mockData} />
     </div>
   );
