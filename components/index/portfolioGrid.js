@@ -7,8 +7,8 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 
-import { Container__fade } from '../../components/styles/container';
-import WebPortfolio from '../../components/web-portfolio';
+import { Container__fade } from '../styles/container';
+import WebPortfolio from '../web-portfolio';
 
 const styles = theme => ({
   root: {

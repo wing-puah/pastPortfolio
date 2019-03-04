@@ -1,5 +1,5 @@
 import React from 'react';
-import PortfolioGrid from './portfolioGrid';
+import PortfolioGrid from '../components/index/portfolioGrid';
 
 const mockData = [
   { img: 'monty-hall.jpg', title: 'Monty Hall Mini Game', url: 'monty-hall' },

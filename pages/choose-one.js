@@ -8,9 +8,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import { Container__boxShadow } from '../../components/styles/container';
-import generateRandomArr from './utils';
-import data from './_data.json';
+import { Container__boxShadow } from '../components/styles/container';
+import generateRandomArr from '../components/choose-one/utils';
+import data from '../components/choose-one/_data.json';
 
 const UserRecord = (props) => {
   const { records } = props;

@@ -1,9 +1,9 @@
 import { useState, useEffect, Fragment } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import MontyHallGameApp from './utils';
-import GameBoxes from './gameBoxes';
-import SwapBtns from './swapBtns';
+import MontyHallGameApp from '../components/monty-hall/utils';
+import GameBoxes from '../components/monty-hall/gameBoxes';
+import SwapBtns from '../components/monty-hall/swapBtns';
 
 
 const {

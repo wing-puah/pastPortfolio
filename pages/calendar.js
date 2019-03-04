@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 // import { CSVLink } from "react-csv";
-import { timeFns } from './utils';
-import Days from './days';
-import Timer from './time';
-import { EventProvider } from './eventContext';
+import { timeFns } from '../components/calendar/utils';
+import Days from '../components/calendar/days';
+import Timer from '../components/calendar/time';
+import { EventProvider } from '../components/calendar/eventContext';
 
 const Context = React.createContext({});
 
