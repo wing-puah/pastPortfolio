@@ -1,7 +1,6 @@
 import React from 'react';
 import Error from 'next/error';
 import fetch from 'isomorphic-unfetch';
-import PropTypes from 'prop-types';
 
 class Page extends React.Component {
   static async getInitialProps() {
@@ -13,10 +12,8 @@ class Page extends React.Component {
   }
 
   render() {
-    const { errorCode } = this.props;
-
     if (errorCode) {
-      return <Error statusCode={this.props.errorCode} />
+      return <Error />
     }
 
     return (
@@ -25,10 +22,6 @@ class Page extends React.Component {
       </div>
     )
   }
-}
-
-Page.propTypes = {
-  errorCode = PropTypes.object,
 }
 
 export default Page;
