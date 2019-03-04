@@ -5,17 +5,15 @@ import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   buttonBase: {
-    paddingTop: theme.spacing.unit * 15,
-    paddingBottom: theme.spacing.unit * 15,
     textAlign: 'center',
     width: '100%',
     fontSize: 40,
     color: theme.palette.text.secondary,
     background: theme.palette.secondary.main,
-    '&:hover' : {
+    '&:hover': {
       background: theme.palette.secondary.main,
       color: theme.palette.secondary.contrastText,
-    }
+    },
   },
   activeButton: {
     background: theme.palette.primary.main,
@@ -29,22 +27,22 @@ const styles = theme => ({
 
 function GameBoxes(props) {
   const { classes } = props;
-  let gameBoxes = [];
+  const gameBoxes = [];
 
-  for (var i=0; i<3; i++){
+  for (let i = 0; i < 3; i++) {
     gameBoxes.push(
-      <Grid item xs={6} sm={4} key={i}>
+      <Grid item xs={4} key={i}>
         <ButtonBase
-          className={ props.userChoice == i ?
-            `${classes.buttonBase} ${classes.activeButton}` :
-             classes.buttonBase
+          className={Number(props.userChoice) === i ?
+            `${classes.buttonBase} ${classes.activeButton} py-3 p-sm-5` :
+             `${classes.buttonBase} p-3 p-sm-5`
           }
           value={i}
           onClick={(el) => {
             props.setUserChoice(el.target.value);
           }}
         >
-          Box {i+1}
+          Box {i + 1}
         </ButtonBase>
       </Grid>
     )

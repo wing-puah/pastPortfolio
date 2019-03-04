@@ -31,22 +31,16 @@ class MyApp extends App {
         <Head>
           <title>Portfolio</title>
         </Head>
-        {/* Wrap every page in Jss and Theme providers */}
         <JssProvider
           registry={this.pageContext.sheetsRegistry}
           generateClassName={this.pageContext.generateClassName}
         >
-          {/* MuiThemeProvider makes the theme available down the React
-              tree thanks to React context. */}
           <MuiThemeProvider
             theme={this.pageContext.theme}
             sheetsManager={this.pageContext.sheetsManager}
           >
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <GlobalStyles />
-            {/* Pass pageContext to the _document though the renderPage enhancer
-                to render collected styles on server-side. */}
             <Layout>
               <Component pageContext={this.pageContext} {...pageProps} />
             </Layout>
@@ -56,8 +50,5 @@ class MyApp extends App {
     );
   }
 }
-
-
-
 
 export default MyApp;

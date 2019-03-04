@@ -31,12 +31,12 @@ function PortfolioGrid(props) {
   return (
     <div className={`py-5 ${classes.root}`}>
       <div className={`mb-5 mx-5 ${classes.flex}`}>
-        <GridList cellHeight={180}>
-          <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+        <GridList className="row">
+          <GridListTile key="Subheader" className="col-12" style={{ height: 'auto' }}>
             <h2>The apps</h2>
           </GridListTile>
           {tileData.map(tile => (
-            <GridListTile key={tile.img} className="text-center">
+            <GridListTile key={tile.img} className="text-center col-12 col-md-6 pb-4 pb-md-0">
               <Container__fade>
                 <Link href={tile.url}>
                   <a>

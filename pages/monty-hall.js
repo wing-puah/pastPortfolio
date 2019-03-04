@@ -5,7 +5,6 @@ import MontyHallGameApp from '../components/monty-hall/utils';
 import GameBoxes from '../components/monty-hall/gameBoxes';
 import SwapBtns from '../components/monty-hall/swapBtns';
 
-
 const {
   showInstructions,
   generateWinningBox,
@@ -13,23 +12,23 @@ const {
   swapAndSetResults,
   setHint } = MontyHallGameApp;
 
-function MontyHallGame(props) {
+function MontyHallGame() {
   const [userChoice, setUserChoice] = useState();
   const [userStep, setUserStep] = useState(0);
   const [winningBox, setWinningBox] = useState();
   const [dummyBox, setDummyBox] = useState();
-  const [resultsMsg, setReultsMsg] = useState();
+  const [resultsMsg, setResultsMsg] = useState();
   let hint = '';
 
-  useEffect(() => {
+  useEffect(() => { // eslint-disable-line arrow-body-style
     return setWinningBox(generateWinningBox());
-  }, [])
+  }, []);
 
   const getUserChoice = (idx) => {
     if (userChoice === undefined) {
-      return setUserChoice(idx)
+      return setUserChoice(idx);
     }
-  }
+  };
 
   const GetHints = () => {
     const hints = setHint(winningBox, userChoice);
@@ -39,7 +38,7 @@ function MontyHallGame(props) {
       setDummyBox(box);
     }
 
-    hint = hints.hint;
+    hint = hints.hint; // eslint-disable-line prefer-destructuring
     return hint;
   };
 
@@ -61,11 +60,11 @@ function MontyHallGame(props) {
           </p>
           <SwapBtns
             swap={() => {
-              setReultsMsg(swapAndSetResults(winningBox, dummyBox, userChoice));
+              setResultsMsg(swapAndSetResults(winningBox, dummyBox, userChoice));
               setUserStep(userStep + 1);
             }}
             noSwap={() => {
-              setReultsMsg(setResults(winningBox, userChoice, -1));
+              setResultsMsg(setResults(winningBox, userChoice, -1));
               setUserStep(userStep + 1);
             }}
           />
@@ -78,6 +77,7 @@ function MontyHallGame(props) {
         container
         spacing={24}
         data-choice={userChoice}
+        className="py-5"
       >
         <GameBoxes
           userChoice={userChoice}

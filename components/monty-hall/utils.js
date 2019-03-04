@@ -13,13 +13,13 @@ function MontyHallGameApp() {
     return Math.floor(Math.random() * 3);
   }
 
-
   function setResults(prize, choice, hasSwapped) {
     const prizeNo = Number(prize);
     const choiceNo = Number(choice);
     const swapNo = Number(hasSwapped);
+    console.log(prize, choice);
 
-    const winningMsg = prize === choice
+    const winningMsg = prizeNo === choiceNo
       ? `The prize is at box ${prizeNo + 1}. You have chosen the prize.`
       : `The prize is at box ${prizeNo + 1}. Better luck next time.`;
 

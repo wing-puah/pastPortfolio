@@ -4,6 +4,7 @@ import { timeFns } from '../components/calendar/utils';
 import Days from '../components/calendar/days';
 import Timer from '../components/calendar/time';
 import { EventProvider } from '../components/calendar/eventContext';
+import { ButtonRound } from '../components/styles/button';
 
 const Context = React.createContext({});
 
@@ -64,19 +65,21 @@ class Calendar extends Component {
         <div className="text-center"><Timer /></div>
         <div className="calendar">
           <div className="calendar__nav">
-            <button
+            <ButtonRound
               className="prev"
               value="prev"
               onClick={this.decrementMonth}>
-              &lt;
-            </button>
+              <i className="zmdi zmdi-chevron-left"></i>
+            </ButtonRound>
             <h2>{ calendarMth } { calendarYear }</h2>
-            <button
+            <ButtonRound
               className="next"
               value="next"
+              width="30px"
+              height="30px"
               onClick={this.incrementMonth}>
-              &gt;
-            </button>
+              <i className="zmdi zmdi-chevron-right"></i>
+            </ButtonRound>
           </div>
           <Days
             timeStamp={this.state.calendarTimeStamp} />

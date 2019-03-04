@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
 import flush from 'styled-jsx/server';
 
 class MyDocument extends Document {
@@ -11,11 +11,11 @@ class MyDocument extends Document {
     let pageContext;
 
     try {
-     const page = ctx.renderPage = (Component) => {
-       const WrappedComponent = props => {
-         pageContext = props.pageContext;
-         return <Component {...props} />;
-       };
+      const page = ctx.renderPage = (Component) => {
+        const WrappedComponent = props => {
+          pageContext = props.pageContext;
+          return <Component {...props} />;
+        };
 
        WrappedComponent.propTypes = {
          pageContext: PropTypes.object.isRequired,
@@ -28,32 +28,33 @@ class MyDocument extends Document {
        return WrappedComponent, originalRenderPage;
      }
 
-     const initialProps = await Document.getInitialProps(ctx)
+      const initialProps = await Document.getInitialProps(ctx)
 
-     let css;
-     // It might be undefined, e.g. after an error.
-     if (pageContext) {
-       css = pageContext.sheetsRegistry.toString();
-     }
+      let css;
+      // It might be undefined, e.g. after an error.
+      if (pageContext) {
+        css = pageContext.sheetsRegistry.toString();
+      }
 
-     return {
-       ...initialProps,
-       ...page,
-       pageContext,
-       styles: (
-         <React.Fragment>
-           <style
+      return {
+        ...initialProps,
+        ...page,
+        pageContext,
+        styles: (
+          <React.Fragment>
+            <style
               id="jss-server-side"
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{ __html: css }}
             />
-           {initialProps.styles}{sheet.getStyleElement()}
-           {flush() || null}
-         </React.Fragment>
-       )
-     }
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+            {flush() || null}
+          </React.Fragment>
+        ),
+      };
     } finally {
-     sheet.seal()
+      sheet.seal();
     }
   }
 
@@ -70,6 +71,7 @@ class MyDocument extends Document {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
           <link rel="stylesheet" href="static/styles/calendar.css" />
           <link rel="stylesheet" href="static/styles/event.css" />
           <link rel="stylesheet" href="static/styles/index.css" />

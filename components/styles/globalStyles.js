@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 import theme from './theme';
 
 const GlobalStyles = createGlobalStyle`
@@ -31,8 +31,32 @@ const GlobalStyles = createGlobalStyle`
     font-size: 4rem;
   }
 
+  h2 {
+    font-size: 2rem;
+    ${theme.breakpoints.up('sm')} {
+      font-size: 2.4rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    ${theme.breakpoints.up('sm')} {
+      font-size: 2rem;
+    }
+  }
+
   .width--full {
     width: 100%;
+  }
+
+  .height--full {
+    height: 100%;
+  }
+
+  nav a {
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .container {
@@ -43,6 +67,6 @@ const GlobalStyles = createGlobalStyle`
       padding: 80px 0;
     }
   }
-`
+`;
 
 export default GlobalStyles;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Grid from '@material-ui/core/Grid';
@@ -16,7 +16,7 @@ const UserRecord = (props) => {
   const { records } = props;
 
   return (
-    <Table>
+    <Table {...props}>
       <TableHead>
         <TableRow>
           <TableCell>
@@ -45,7 +45,7 @@ const SingleBox = (props) => {
   return (
     <Grid item xs={6}>
       <Container__boxShadow
-        className="text-center p-5 border"
+        className="text-center p-2 p-sm-5 border height--full"
         onClick={onUserClick}
       >
         <img src={`/static/choose-one/${image}`} className="img-fluid" alt={name} />
@@ -56,49 +56,47 @@ const SingleBox = (props) => {
 };
 
 
-function ChooseOneGrid(props) {
+function ChooseOneGrid() {
   const [gameSelection, setGameSelection] = useState();
-  let [gameIdx, setGameIdx] = useState(0);
-  let [firstIdx, setFirstIdx] = useState();
-  let [secondIdx, setSecondIdx] = useState();
+  const [gameIdx, setGameIdx] = useState(null);
+  const [firstIdx, setFirstIdx] = useState();
+  const [secondIdx, setSecondIdx] = useState();
   let [userRecord, setUserRecord] = useState([]);
-  let temp = gameIdx;
 
   useEffect(() => {
     setGameSelection(generateRandomArr(5));
+    setGameIdx(0);
   }, []);
 
   useEffect(() => {
-    if (typeof gameSelection !== 'undefined') {
+    if (typeof gameSelection !== 'undefined' && gameIdx < (gameSelection.length - 1)) {
       setFirstIdx(gameSelection[gameIdx][0]);
       setSecondIdx(gameSelection[gameIdx][1]);
     }
-  });
+  }, [gameIdx]);
+
+  const updateRecords = (userChoice) => {
+    console.log(userChoice)
+    if (gameIdx < (gameSelection.length - 1)) {
+      userRecord.push(userChoice);
+      setGameIdx(gameIdx + 1);
+    }
+  };
 
   return (
     <div>
       <h2>Choose the image that you like</h2>
       <Grid container spacing={16}>
         <SingleBox
-          onUserClick={() => {
-            gameIdx < (gameSelection.length-1) &&
-            userRecord.push(data.choices[firstIdx].name)
-            setUserRecord(userRecord)
-            setGameIdx(gameIdx + 1)
-          }}
+          onUserClick={() => updateRecords(data.choices[firstIdx].name)}
           {...data.choices[firstIdx]}
         />
         <SingleBox
-          onUserClick={() => {
-            gameIdx < (gameSelection.length - 1) &&
-            userRecord.push(data.choices[secondIdx].name)
-            setUserRecord(userRecord)
-            setGameIdx(gameIdx+1)
-          }}
+          onUserClick={() => updateRecords(data.choices[secondIdx].name)}
           {...data.choices[secondIdx]}
         />
       </Grid>
-      <UserRecord records={userRecord} />
+      <UserRecord records={userRecord} className="my-5" />
     </div>
   );
 }

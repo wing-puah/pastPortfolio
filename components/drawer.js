@@ -8,32 +8,33 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 const drawerNavLinks = [
   {
-    icon: "",
+    icon: "zmdi-github",
     url: "https://github.com/wing-puah",
     text: "Github"
   },
   {
-    icon: "",
+    icon: "zmdi-linkedin-box",
     url: "https://www.linkedin.com/in/puahhuiying/",
     text: "LinkedIn"
   },
   {
-    icon: "",
+    icon: "zmdi-collection-item",
     url: "https://medium.com/@wingpuah",
     text: "Medium"
   },
   {
-    icon: "",
+    icon: "zmdi-codepen",
     url: "https://codepen.io/wing-p",
     text: "Codepen"
   },
   {
-    icon: "",
+    icon: "zmdi-face",
     url: "https://www.thegeekwing.com/about-wing",
     text: "The Geek Wing"
   }
@@ -48,6 +49,24 @@ const styles = {
   },
 };
 
+const SideList = (props) => (
+  <nav {...props}>
+    <List>
+      {drawerNavLinks.map((data, index) => (
+        <a href={data.url} target="_blank" key={data.text}>
+          <ListItem button>
+            <ListItemIcon>
+              <i className={`zmdi ${data.icon}`}></i>
+            </ListItemIcon>
+            <ListItemText primary={data.text} />
+          </ListItem>
+        </a>
+      ))}
+    </List>
+    <Divider />
+  </nav>
+);
+
 class LeftDrawer extends React.Component {
   state = {
     left: false
@@ -61,21 +80,6 @@ class LeftDrawer extends React.Component {
 
   render() {
     const { classes } = this.props;
-
-    const sideList = (
-      <div className={classes.list}>
-        <List>
-          {drawerNavLinks.map((data, index) => (
-            <a href={data.url} target="_blank">
-              <ListItem button key={data.text}>
-                <ListItemText primary={data.text} />
-              </ListItem>
-            </a>
-          ))}
-        </List>
-        <Divider />
-      </div>
-    );
 
     return (
       <Fragment>
@@ -92,7 +96,7 @@ class LeftDrawer extends React.Component {
             onClick={this.toggleDrawer(false)}
             onKeyDown={this.toggleDrawer(false)}
           >
-            {sideList}
+            <SideList className={classes.list}/>
           </div>
         </Drawer>
       </Fragment>

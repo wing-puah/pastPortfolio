@@ -4,7 +4,7 @@ import CalendarDays from './daysRendering';
 import Popup from './modal';
 // import { sendToLocalStorage } from './utils';
 
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 function Days(props) {
   const { timeStamp } = props;
@@ -51,7 +51,7 @@ function Days(props) {
 
 Days.propTypes = {
   timeStamp: PropTypes.object.isRequired,
-}
+};
 
 function saveData(e, callback) {
   e.preventDefault();
