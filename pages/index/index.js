@@ -2,8 +2,9 @@ import React from 'react';
 import PortfolioGrid from './portfolioGrid';
 
 const mockData = [
-  { img: 'monty-hall.jpg', title: 'Monty Hall Game App', url: 'monty-hall' },
-  { img: 'choose-one/choose-1.jpg', title: 'Choose One Game App', url: 'choose-one' },
+  { img: 'monty-hall.jpg', title: 'Monty Hall Mini Game', url: 'monty-hall' },
+  { img: 'choose-one/choose-3.jpg', title: 'Choose One Mini Game', url: 'choose-one' },
+  { img: 'calendar.jpg', title: 'Calendar', url: 'calendar' },
 ];
 
 function Home() {

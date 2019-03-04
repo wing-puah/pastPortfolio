@@ -20,6 +20,10 @@
     ],
     "rules": {
       "linebreak-style": ["error", "windows"],
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/react-in-jsx-scope": "off",
+      "requireForBlockBody": "as-needed",
+      "arrow-parens": "off",
+      "react/forbid-prop-types": "off"
     }
 }

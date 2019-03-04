@@ -11,6 +11,33 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
+const drawerNavLinks = [
+  {
+    icon: "",
+    url: "https://github.com/wing-puah",
+    text: "Github"
+  },
+  {
+    icon: "",
+    url: "https://www.linkedin.com/in/puahhuiying/",
+    text: "LinkedIn"
+  },
+  {
+    icon: "",
+    url: "https://medium.com/@wingpuah",
+    text: "Medium"
+  },
+  {
+    icon: "",
+    url: "https://codepen.io/wing-p",
+    text: "Codepen"
+  },
+  {
+    icon: "",
+    url: "https://www.thegeekwing.com/about-wing",
+    text: "The Geek Wing"
+  }
+]
 
 const styles = {
   list: {
@@ -38,10 +65,12 @@ class LeftDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
+          {drawerNavLinks.map((data, index) => (
+            <a href={data.url} target="_blank">
+              <ListItem button key={data.text}>
+                <ListItemText primary={data.text} />
+              </ListItem>
+            </a>
           ))}
         </List>
         <Divider />

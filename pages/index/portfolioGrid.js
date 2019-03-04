@@ -41,9 +41,9 @@ function PortfolioGrid(props) {
                 <Link href={tile.url}>
                   <a>
                     <img src={`/static/${tile.img}`} alt={tile.title} className="img-fluid"/>
-                        <GridListTileBar
-                          title={tile.title}
-                        />
+                      <GridListTileBar
+                        title={tile.title}
+                      />
                   </a>
                 </Link>
               </Container__fade>

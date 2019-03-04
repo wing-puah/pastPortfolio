@@ -8,45 +8,52 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
-import ErrorBoundary from '../../components/errorMsg';
 import { Container__boxShadow } from '../../components/styles/container';
 import generateRandomArr from './utils';
 import data from './_data.json';
 
-const UserRecord = (props) => (
-  <Table>
-    <TableHead>
-      <TableRow>
-        <TableCell>
-          Game no.
-        </TableCell>
-        <TableCell>
-          Your choices
-        </TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      {props.records.map((el, idx) => (
-        <TableRow key={idx}>
-          <TableCell>{idx+1}</TableCell>
-          <TableCell>{el}</TableCell>
-        </TableRow>
-      ))}
-    </TableBody>
-  </Table>
-);
+const UserRecord = (props) => {
+  const { records } = props;
 
- const SingleBox = (props) => (
-  <Grid item xs={6}>
-    <Container__boxShadow
-      className="text-center p-5"
-      onClick={props.onUserClick}
-    >
-      <img src={`/static/choose-one/${props.image}`} className="img-fluid"/>
-      <h3>{props.name}</h3>
-    </Container__boxShadow>
-  </Grid>
-);
+  return (
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>
+            Game no.
+          </TableCell>
+          <TableCell>
+            Your choices
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {records.map((el, idx) => (
+          <TableRow key={idx}>
+            <TableCell>{idx + 1}</TableCell>
+            <TableCell>{el}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
+};
+
+const SingleBox = (props) => {
+  const { onUserClick, image, name } = props;
+
+  return (
+    <Grid item xs={6}>
+      <Container__boxShadow
+        className="text-center p-5 border"
+        onClick={onUserClick}
+      >
+        <img src={`/static/choose-one/${image}`} className="img-fluid" alt={name} />
+        <h3>{name}</h3>
+      </Container__boxShadow>
+    </Grid>
+  );
+};
 
 
 function ChooseOneGrid(props) {
@@ -77,13 +84,13 @@ function ChooseOneGrid(props) {
             gameIdx < (gameSelection.length-1) &&
             userRecord.push(data.choices[firstIdx].name)
             setUserRecord(userRecord)
-            setGameIdx(gameIdx+1)
+            setGameIdx(gameIdx + 1)
           }}
           {...data.choices[firstIdx]}
         />
         <SingleBox
           onUserClick={() => {
-            gameIdx < (gameSelection.length-1) &&
+            gameIdx < (gameSelection.length - 1) &&
             userRecord.push(data.choices[secondIdx].name)
             setUserRecord(userRecord)
             setGameIdx(gameIdx+1)
@@ -91,10 +98,10 @@ function ChooseOneGrid(props) {
           {...data.choices[secondIdx]}
         />
       </Grid>
-      <UserRecord records={userRecord}/>
+      <UserRecord records={userRecord} />
     </div>
   );
-};
+}
 
 SingleBox.propTypes = {
   name: PropTypes.string.isRequired,
@@ -104,6 +111,6 @@ SingleBox.propTypes = {
 
 UserRecord.propTypes = {
   records: PropTypes.array.isRequired,
-}
+};
 
 export default ChooseOneGrid;

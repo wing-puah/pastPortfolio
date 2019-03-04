@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const img = [
   'blockchain-education.jpg',
   'edusage.jpg',
   'ikibook.jpg',
+  'aman-amanah.jpg',
   'katalyst.jpg',
   'NBC.jpg',
   'TGW.jpg',
@@ -24,25 +24,25 @@ const PortfolioImg = styled.div`
     width: 100%;
     height: auto;
   }
-`
+`;
 
-const WebPortfolio = (props) => {
+const WebPortfolio = () => {
   return (
     <div className="p-4 p-sm-5">
       <h2>Static + Wordpress websites</h2>
       <div className="row">
-        {img.map((el, idx) => (
-          <PortfolioImg className="col-xs-6 col-sm-4 p-3" key={idx}>
+        {img.map((el) => (
+          <PortfolioImg className="col-xs-6 col-sm-4 p-3" key={el}>
             <div className="border">
               <div className="m-3 img-container">
-                <img src={`/static/${el}`} key={idx} />
+                <img src={`/static/${el}`} alt={el} />
               </div>
             </div>
           </PortfolioImg>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default WebPortfolio;

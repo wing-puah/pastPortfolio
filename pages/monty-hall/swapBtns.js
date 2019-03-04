@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 function SwapBtns(props) {
-  const { classes } = props;
+  const { swap, noSwap } = props;
 
   return (
     <Grid container className="justify-content-center">
@@ -16,20 +12,26 @@ function SwapBtns(props) {
           variant="contained"
           color="primary"
           className="m-3"
-          onClick={ props.swap }>
+          onClick={swap}
+        >
           Swap
         </Button>
         <Button
           variant="contained"
           color="secondary"
           className="m-3"
-          onClick={ props.noSwap }>
+          onClick={noSwap}
+        >
           Don't swap
         </Button>
       </Grid>
     </Grid>
-  )
+  );
 }
 
-// export default withStyles(styles)(SwapBtns);
-export default SwapBtns
+SwapBtns.propTypes = {
+  swap: PropTypes.func.isRequired,
+  noSwap: PropTypes.func.isRequired,
+};
+
+export default SwapBtns;

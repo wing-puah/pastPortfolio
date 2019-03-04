@@ -32,9 +32,8 @@ function MontyHallGameApp() {
 
   function swapAndSetResults(prize, dummy, choice) {
     const arr = [0, 1, 2];
-    const swapChoice = arr.filter(el => (el !== dummy && el !== choice));
-
-    return setResults(prize, swapChoice, choice);
+    const swapChoice = arr.filter(el => (el !== dummy && el !== Number(choice)));
+    return setResults(prize, parseInt(swapChoice, 10), choice);
   }
 
   function setHint(winning, userChoice) {
