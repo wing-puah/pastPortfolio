@@ -36,7 +36,7 @@ function MontyHallGame() {
 
     if (dummyBox === undefined) {
       setDummyBox(box);
-    }
+    }T
 
     hint = hints.hint; // eslint-disable-line prefer-destructuring
     return hint;
